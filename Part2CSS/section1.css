@@ -1,0 +1,29 @@
+.centered{
+    text-align: center;
+    justify-content: center;
+}
+table,tr,td,th{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.hovered:hover{
+    color:red;
+}
+.float-right{
+    float: right;
+}
+.grid-container {
+    margin: 50px 10px 10px 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+  }
+  .grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 20   px;
+    text-align: center;
+  }
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
