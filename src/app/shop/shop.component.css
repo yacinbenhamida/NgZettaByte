@@ -1,0 +1,36 @@
+.title {
+    font-size: 24px;
+}
+.content{
+    margin-left: 16.5%;
+    margin-right : 16.5%;
+}
+.description{
+    line-break: auto;
+    text-align: left;
+    justify-content: end;
+    line-height: 190%;
+}
+.subtitle{
+    font-size: 1.17em;
+    font-weight: bold;
+    text-align: left;
+}
+.shopping-cart{
+    margin-top : 30px;
+    display: block;
+}
+.item-price {
+    left : 80%;
+    position: absolute;
+}
+.total{
+    width: 100%;
+    font-size: 1.10em;
+    font-weight: bold;
+    text-align: left;
+}
+.buy{
+    width:  100%;
+    margin: 10px;
+}

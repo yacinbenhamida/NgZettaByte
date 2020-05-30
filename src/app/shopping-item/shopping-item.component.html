@@ -1,0 +1,16 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{item.name}}</mat-card-title>
+      <mat-card-subtitle class="subtitle">Price : {{item.price}}</mat-card-subtitle>
+    </mat-card-header>
+        <img class="mat-card-image-sized" src="{{item.image}}" alt="Product picture">
+    <mat-card-content>
+      <p class="mat-card-text-sized">
+        {{item.desc}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="elem-footer">
+      <button *ngIf="!item.addedToCart" (click)="AddOrRemoveFromCart(item)" mat-button><mat-icon aria-hidden="false" aria-label="Example home icon">add_shopping_cart</mat-icon> Add to cart</button>
+      <button *ngIf="item.addedToCart" (click)="AddOrRemoveFromCart(item)" color="primary" mat-button><mat-icon aria-hidden="false" aria-label="Example home icon">remove_shopping_cart</mat-icon> Added to cart!</button>
+    </mat-card-actions>
+  </mat-card>
