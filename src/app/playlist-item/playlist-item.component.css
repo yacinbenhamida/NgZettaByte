@@ -1,0 +1,13 @@
+.pull-left{
+    text-align: left;
+}
+.description{
+    color: black;
+}
+.pull-left-header{
+    margin-left: -20px;
+    text-align: left;
+}
+.example-card{
+    margin-bottom: 20px;
+}

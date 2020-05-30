@@ -21,7 +21,7 @@
     display: block;
 }
 .item-price {
-    left : 80%;
+    left : 90%;
     position: absolute;
 }
 .total{
@@ -29,6 +29,10 @@
     font-size: 1.10em;
     font-weight: bold;
     text-align: left;
+}
+.total-integer{
+    left : 80%;
+    position: absolute;
 }
 .buy{
     width:  100%;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../models/item'
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -66,13 +67,31 @@ export class ShopComponent implements OnInit {
   breakpoint:number = 3 
   selectedItems : Item[] = []
   total = 0;
-  constructor() { }
+  durationInSeconds = 5;
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.breakpoint = (window.innerWidth <= 800) ? 2 : 3;
+    if(window.innerWidth <= 800){
+      this.breakpoint = 1;
+    }
+    else if(window.innerWidth <= 1100){
+      this.breakpoint = 2
+    }
+    else this.breakpoint = 3
+  }
+  openSnackBar(message,action) {
+    this._snackBar.open(message,action,{
+      duration: this.durationInSeconds * 1000,
+    });
   }
   onResize(event){
-    this.breakpoint = (event.target.innerWidth <= 800) ? 2 : 3;
+    if(event.target.innerWidth <= 800){
+      this.breakpoint = 1;
+    }
+    else if(event.target.innerWidth <= 1100){
+      this.breakpoint = 2
+    }
+    else this.breakpoint = 3
   }
   onBuy(event){
     if(event.addedToCart){
@@ -86,5 +105,15 @@ export class ShopComponent implements OnInit {
       }      
       this.total -= event.price
     }
+  }
+  confirmSale(){
+    if (this.total > 1000){
+      this.openSnackBar("You don't have enough gold !","OK")
+      return
+    }
+    if(this.selectedItems.length > 0 && this.total > 0 && this.total <= 1000){
+      this.openSnackBar('Transaction success!',"OK")
+    }
+    else this.openSnackBar('Please buy something',"OK")
   }
 }

@@ -1,0 +1,53 @@
+<div class="modalwidth">
+  <h2 mat-dialog-title>Create New Playlist</h2>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="playlistForm" class="example-form">
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Playlist name</mat-label>
+          <input formControlName="name" matInput placeholder="Playlist name">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="example-full-width">
+          <mat-label>Description</mat-label>
+          <textarea  formControlName="description" matInput
+            placeholder="Description"></textarea>
+        </mat-form-field>
+      </p>
+      <div>
+        <div formArrayName="songs" *ngFor="let song of playlistForm.get('songs').controls; let i=index;">
+          <div [formGroupName]="i">
+            <mat-form-field class="small-field">
+              <mat-label>Song title</mat-label>
+              <input matInput formControlName="title" placeholder="song title*">
+            </mat-form-field>
+            <mat-form-field class="small-field">
+              <mat-label>artist</mat-label>
+              <input matInput formControlName="artist" placeholder="artist *">
+            </mat-form-field>
+            <mat-form-field class="small-field">
+              <mat-label>Duration</mat-label>
+              <input min="1" type="number" matInput formControlName="duration" placeholder="Duration *">
+            </mat-form-field>
+            <span class="small-field-operation">
+              <button (click)="addItem()" mat-icon-button color="primary">
+                <mat-icon>add_circle</mat-icon>
+              </button>
+              <button *ngIf="i > 0" (click)="deleteItem(i)" mat-icon-button color="primary">
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="center">
+    <button mat-raised-button mat-dialog-close color="error" [mat-dialog-close]="true">CANCEL</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="returnFormValueResult()"
+      [disabled]="!playlistForm.valid">SUBMIT</button>
+  </mat-dialog-actions>
+</div>

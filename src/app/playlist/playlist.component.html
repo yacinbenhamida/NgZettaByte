@@ -1,1 +1,18 @@
-<p>playlist works!</p>
+<div>
+<h1 class="ptitle">The Playlists</h1>
+<p>Here you can create your own playlist, edit your already existing playlist, add songs, and show it to the world!</p>
+<mat-list role="list" class="stack">
+    <mat-list-item role="listitem">
+        <button (click)="addPlaylist()" mat-raised-button color="primary">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">playlist_add</mat-icon> New playlist
+        </button>
+    </mat-list-item>
+    <div class="reduce">
+        <mat-divider></mat-divider>
+    </div>
+    <div *ngFor="let item of playlists; let i=index">
+        <app-playlist-item (editPlayListAction)="editPlayList(item,i)" (deletePlayListAction)="deletePlayList(item)" [playlist]='item'></app-playlist-item>
+    </div>
+</mat-list>
+</div>
+

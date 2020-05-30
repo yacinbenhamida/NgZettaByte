@@ -1,0 +1,14 @@
+.example-full-width{
+    width:  100%;
+}
+.small-field{
+    margin-right: 10px;
+}
+.small-field-operation{
+    margin-left : 100px;
+    margin-right: 30px;
+}
+.modalwidth{
+    font-size: 50px;
+    text-align: left;
+}

@@ -1,0 +1,22 @@
+<mat-card class="example-card" *ngIf="playlist">
+    <mat-card-header class="pull-left-header">
+      <mat-card-title>{{playlist.name}}</mat-card-title>
+      <mat-card-subtitle>total {{playlist.totalSongs}} songs, {{playlist.totalDuration}} minutes</mat-card-subtitle>
+      <mat-card-subtitle class="description">{{playlist.description}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="pull-left">
+        <mat-list >
+            <mat-divider></mat-divider>
+            <mat-list-item *ngFor="let song of playlist.songs">
+              <mat-icon mat-list-icon>music_note</mat-icon>
+              <div mat-line>{{song.title}}</div>
+              <div mat-line>by {{song.artist}}, {{song.duration}} minutes</div>
+            </mat-list-item>
+          </mat-list>
+    </mat-card-content>
+    <mat-card-actions class="pull-left">
+      <button (click)="deletePlayList()" mat-button color="error">DELETE</button>
+      <button (click)="editPlayList()" mat-button>EDIT</button>
+    </mat-card-actions>
+  </mat-card>
+  

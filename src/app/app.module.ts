@@ -13,13 +13,20 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { PlaylistItemComponent } from './playlist-item/playlist-item.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { PlaylistDialogComponent } from './playlist-dialog/playlist-dialog.component';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     ShopComponent,
     PlaylistComponent,
-    ShoppingItemComponent
+    ShoppingItemComponent,
+    PlaylistItemComponent,
+    PlaylistDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,16 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatGridListModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatInputModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  entryComponents : [
+    PlaylistDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
